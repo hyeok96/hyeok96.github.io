@@ -52,7 +52,8 @@ github_username:  jekyll
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/resume.jpeg
 about_content: | # this will include new lines to allow paragraphs
-    Java & Spring 기반의 백엔드 개발자가 되기 위해서 00개의 블로그 포스팅을 작성을 하며 지식을 꾸준하고 체계적으로 정리를 했습니다. 또한 AWS와 Docker를 활요한 인프라 구축을 통해 실무 환경에 대한 경험을 쌓았습니다. /n
+    Java & Spring 기반의 백엔드 개발자가 되기 위해서 00개의 블로그 포스팅을 작성을 하며 지식을 꾸준하고 체계적으로 정리를 했습니다. 또한 AWS와 Docker를 활요한 인프라 구축을 통해 실무 환경에 대한 경험을 쌓았습니다.
+    
     애플리케이션의 안전성과 유지보스를 위해서 테스트 코드를 중요하게 생각하고 있습니다. 그래서 개발을 할 때 테스트 코드가 자동으로 실행되도록 하였습니다.
   
 
