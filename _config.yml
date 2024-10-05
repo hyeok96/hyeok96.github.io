@@ -77,20 +77,20 @@ content:
       - layout: left
         border: weak  # Value of `weak` will display a weak border below this item. # Any 
                       # other value (or no value) means no border will be displayed
-        title: Project name
-        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        link_text: Link Text
-        additional_links:
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+        title: Ticket-flow
+        link: https://github.com/f-lab-edu/ticket-flow
+        link_text: https://github.com/f-lab-edu/ticket-flow
+        # additional_links:
+        #   - title:  Github page for project (eg. sproogen/modern-resume-theme)
+        #     icon: fab fa-github
+        #     url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
+        #   - title:  Github page for project (eg. sproogen/modern-resume-theme)
+        #     icon: fab fa-github
+        #     url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
         quote: >
-          Short overview of the project (optional)
+          문화생활을 즐길 수 있는 스포츠, 연극, 뮤지컬 등 관람 티켓을 예매할 수 있는 프로젝트
         description: | # this will include new lines to allow paragraphs
-          Description about the work on/with the project
+          - JWT와 In-Memory-DataBase를 통한 Scale Out 데이터 불일치 문제 해결
   - title: Experience
     layout: list
     content:
