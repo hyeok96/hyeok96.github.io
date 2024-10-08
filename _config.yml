@@ -95,6 +95,7 @@ content:
           - Scale Out의 데이터 불일치 문제 해결
             - [예매 프로젝트 특성 상 예매를 위해 갑자기 상승하는 대용량 트래픽을 고려한 Scale Out 서버 확장 방식 선택](https://velog.io/@sang_hyeok_2/%EB%8C%80%EC%9A%A9%EB%9F%89-%ED%8A%B8%EB%9E%98%ED%94%BD%EC%9D%B4-%EC%98%A4%EB%A9%B4-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%99%95%EC%9E%A5%EC%9D%84-%ED%95%98%EB%8A%94%EA%B2%8C-%EC%A2%8B%EC%9D%84%EA%B9%8C)
             - Scale Out의 문제 데이터 불일치를 해결하기 위해 로그인은 JWT 토큰 방식, 인기 검색어 In-Memory-Date Redis 사용 데이터 불일지 문제 해결
+          - 애매하기 동시섬 문제 해결
   # - title: Experience
   #   layout: list
   #   content:
@@ -117,7 +118,7 @@ content:
         quote: >
           멘토 1명 & 멘티 1명 구성의 자바 멘토링 프로그램
         description: | # this will include new lines to allow paragraphs
-          Description of qualification
+          - ticket-flow 프로젝트 개발       
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
