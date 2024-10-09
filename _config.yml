@@ -112,6 +112,18 @@ content:
           - JPA, Hibernate
           - Junit4/5, Mockito
           - IntelliJ, VScode
+      - layout: left
+        title: DB & CI/CD
+        # sub_title: Job title
+        # caption: Date Range (eg. November 2016 - present)
+        # link: Link to company (optional)
+        quote: >
+          
+        description: | # this will include new lines to allow paragraphs
+          - MySql, MariaDB, Redis, MongoDB
+          - Github Actions, AWS CodeDeploy
+          - AWS EC2, AWS S3, AWS RDS 
+
   - title: Education
     layout: list
     content:
