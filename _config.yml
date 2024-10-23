@@ -90,12 +90,18 @@ content:
         quote: >
           문화생활을 즐길 수 있는 스포츠, 연극, 뮤지컬 등 관람 티켓을 예매할 수 있는 프로젝트
         description: | # this will include new lines to allow paragraphs
-          - 수동 배포로 인한 개발 시간 증가 및 효율성 하락 개선
-            - [Github Actions를 활용한 CI/CD 구축으로 배포 자동화](https://velog.io/@sang_hyeok_2/Project-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B0%9C%EB%B0%9C-%ED%9A%A8%EC%9C%A8%EC%84%B1%EC%9D%84-%EC%9C%84%ED%95%9C-CICD-%EC%A0%81%EC%9A%A9-%EA%B3%BC%EC%A0%95)
-          - Scale Out의 데이터 불일치 문제 해결
-            - [예매 프로젝트 특성 상 예매를 위해 갑자기 상승하는 대용량 트래픽을 고려한 Scale Out 서버 확장 방식 선택](https://velog.io/@sang_hyeok_2/%EB%8C%80%EC%9A%A9%EB%9F%89-%ED%8A%B8%EB%9E%98%ED%94%BD%EC%9D%B4-%EC%98%A4%EB%A9%B4-%EC%84%9C%EB%B2%84%EB%A5%BC-%EC%96%B4%EB%96%BB%EA%B2%8C-%ED%99%95%EC%9E%A5%EC%9D%84-%ED%95%98%EB%8A%94%EA%B2%8C-%EC%A2%8B%EC%9D%84%EA%B9%8C)
-            - Scale Out의 문제 데이터 불일치를 해결하기 위해 로그인은 JWT 토큰 방식, 인기 검색어 In-Memory-Date Redis 사용 데이터 불일지 문제 해결
-          - 예매하기 동시성 문제 해결
+          🌟 인기 검색어 동시성 문제 해결
+            📝 문제 배경
+            인기 검색어를 구현을 하였고 예매 프로젝트 특성상 사용자가 몰리는 경우가 많기 때문에 동시성 테스트를 진행을 했습니다.
+            8000명을 기준으로 동시성 테스트 결과 기대하던 결과인 8000이 아닌 831만 올라 가며 동시성 문제가 발생을 했습니다.
+
+            🔍 해결 방법
+            동시성을 제어를 할 수 있는 방법에 대해서 찾아 보았습니다. Synchronized 키워드 , Optimistic Lock, Pessimitic Lock 등을 고려하였습니다.
+            서버의 확장 방식인 Scale Out으로 인한 다중 서버 환경과 요청 수 만큼의 작업을 해야 하기 때문에 Pessimitic Lock을 적용울 했습니다.
+
+            💡 경험을 통해 배운 것
+            동시성을 제어를 하는 방식에 대해서 알 수 있었습니다. 각 방식의 장단점을 배워서 어떤 방식에 더 적합한 지를 판단을 할 수 있는 계기가 되었습니다.
+            또한 단일 프로세스가 아니라 다중 프로세스일 때 충돌을 방지하고 일관성을 유지하는 것을 경험을 할 수 있었습니다.
   - title: Skill
     layout: list
     content:
