@@ -90,9 +90,9 @@ content:
         quote: >
           문화생활을 즐길 수 있는 스포츠, 연극, 뮤지컬 등 관람 티켓을 예매할 수 있는 프로젝트
         description: | # this will include new lines to allow paragraphs
-          #### 서버 확장 방식에 따른 데이터 접합성 문제 해결
-          - 문제 상황
-
+          - 서버 확장 방식에 따른 데이터 접합성 문제 해결
+            - 문제 상황
+              - 대용량 트래팍을 고려를 하여
 
   - title: Skill
     layout: list
