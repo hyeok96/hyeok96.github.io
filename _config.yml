@@ -92,7 +92,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           - 서버 확장 방식에 따른 데이터 접합성 문제 해결
             - 문제 상황
-              - 대용량 트래팍을 고려를 하여
+              - 대용량 트래픽을 고려를 하여 Scale Out 서버 확장 방식을 선택을 했습니다. Scale Out 방식으로 인한 세션 불일치 문제가 발생을 하였습니다. 
 
   - title: Skill
     layout: list
