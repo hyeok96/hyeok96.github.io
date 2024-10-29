@@ -90,9 +90,23 @@ content:
         quote: >
           문화생활을 즐길 수 있는 스포츠, 연극, 뮤지컬 등 관람 티켓을 예매할 수 있는 프로젝트
         description: | # this will include new lines to allow paragraphs
-          - 서버 확장 방식에 따른 데이터 접합성 문제 해결
+          - 인기 검색어 동시성 제어하기
             - 문제 상황
-              - 대용량 트래픽을 고려를 하여 Scale Out 서버 확장 방식을 선택을 했습니다. Scale Out 방식으로 인한 세션 불일치 문제가 발생을 하였습니다. 
+              - 예매 프로젝트 특성 상 티켓 오픈 날 트래픽이 몰리기 때문에 인기 검색어에 대한 api가 동시에 요청이 될 것으로 판단되어 인기 검색어의 대한 동시성 테스트를 진행을 했습니다. 8000개의 동시성 테스트를 했을 때, 원하는 결과는 8000인데 실제 결과는 831으로 동시성 문제가 발생을 했습니다. 
+            - 해결 방법
+              - 동시성을 제어하기 위해 Synchronized, Optimistic Lock, Pessimitic Lock을 적용해보았습니다.
+                - Synchronized의 경우 동시성은 보장이 되지만 다중 서버 환경인 프로젝트에서는 적합하지 않습니다.
+                - Optimistic Lock은 트랜잭션이 충돌이 일어났을 때 롤백을 시키면서 동시성을 제어를 하는데 version이 맞지 않은 경우 롤백을 시키기 때문에 원하는 결과를 얻을 수 없습니다.
+                - Pessimitic Lock은 트랜잭션 충돌이 일어나기 전에 Lock을 걸어 동시성을 제어합니다. 그래서 일관성을 유지하기 때문에 적합하다고 판단을 했습니다.
+                  - [블로그 - 인기 검색어 동시성 문제 해결하기](https://velog.io/@sang_hyeok_2/Project-%EC%9D%B8%EA%B8%B0-%EA%B2%80%EC%83%89%EC%96%B4-%EB%8F%99%EC%8B%9C%EC%84%B1-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0)
+              - Redis의 SETNX와 SpinLock을 사용해서 동시성을 제어 해보았습니다.
+                - SETNX의 경우 Lock 키를 통해서 동시성을 제어를 하지만 Lock 키를 얻지 못 했을 때 작업이 종료되면 원하는 결과를 얻을 수 없었습니다.
+                  - [블로그 - Redis로 동시성 제어하기 - SETNX](https://velog.io/@sang_hyeok_2/Project-Redis%EB%A1%9C-%EB%8F%99%EC%8B%9C%EC%84%9C-%EC%A0%9C%EC%96%B4%ED%95%98%EA%B8%B0-SETNX)
+                - Spin Lock은 루프를 통해서 Lock 키를 얻을 때까지 시도를 하는 방법인데 CPU의 부하가 많이 가고 최대로 시도를 했는데도 Lock 키를 얻지 못하면 작업이 취소 대기 때문에 적합하다고 판단이 되지 않습니다.
+                  - [블로그 - Redis로 동시성 제어하기 - Spin Lock](https://velog.io/@sang_hyeok_2/Project-Redis%EB%A1%9C-%EB%8F%99%EC%8B%9C%EC%84%B1-%EC%A0%9C%EC%96%B4%ED%95%98%EA%B8%B0-Spin-Lock)
+            - 결과
+              - 결과적으로 관리 비용과 일관성, 정확성을 고려했을 때 Pessimitic Lock을 사용하는 것이 적합하다고 판단을 했습니다.
+              - Pessimitic Lock을 사용하여 동시성을 제어를 하였고 결과도 8000으로 정확한 결과 나왔습니다.                                                                                                                                                   
 
   - title: Skill
     layout: list
